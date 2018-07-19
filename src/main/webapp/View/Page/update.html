@@ -1,0 +1,95 @@
+<div layout="column" ng-cloak class="md-inline-form">
+<h1 align="center">Update</h1>
+
+<form name="regis">
+  <md-content layout-gt-sm="row" layout-padding>
+    <div>
+      <md-input-container>
+        <label>UserID</label>
+        <input minlength="8" maxlength="8" ng-model="updateUser.userID" name="idfield" required integer >
+      <div ng-messages="regis.idfield.$error">
+          <div ng-message="required">This is required.</div>
+          <div ng-message-exp="['minlength','maxlength']">The description must be 8 characters long.</div>
+         
+          </div>
+      </md-input-container>
+      
+
+		
+	<md-input-container>
+        <label>Fullname</label>
+        <input ng-model="updateUser.name" name="namefield" required >
+         <div ng-messages="regis.namefield.$error">
+        	<div ng-message="required">Username is required.</div>
+		
+		</div>
+      </md-input-container>
+      
+      <md-input-container>
+        <label>Email</label>
+        <input ng-model="updateUser.email" name="email" required minlength="10" maxlength="30" ng-pattern="/^.+@.+\..+$/" lowercase>
+         <div ng-messages="regis.email.$error">
+        	<div ng-message="required">E-mail is required.</div>
+        	<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+            Your E-mail is Invalid(10-30)
+          </div>
+		</div>
+      </md-input-container>
+      
+      <md-input-container>
+        <label>Password</label>
+        <input ng-model="updateUser.password" type="password" name="passwordfield" required ng-value="updateUser.password">
+        <div ng-messages="regis.passwordfield.$error">
+        	<div ng-message="required">Password is required</div>
+           
+		</div>
+      </md-input-container>
+      
+      <md-input-container>
+        <label>Phone</label>
+        <input ng-model="updateUser.phone" name="phone" required>
+      <div ng-messages="regis.phone.$error">
+        	<div ng-message="required">Phone is required</div>
+           
+		</div>
+		</md-input-container>
+      
+      <md-input-container>
+        <label>Adress</label>
+        <input ng-model="updateUser.address" name="address" required >
+         <div ng-messages="regis.address.$error">
+        	<div ng-message="required">Address is required</div>
+           
+		</div>
+      </md-input-container>
+      
+      <md-input-container>
+        <label>Company</label>
+        <input ng-model="updateUser.company" name="compani" required>
+         <div ng-messages="regis.compani.$error">
+        	<div ng-message="required">Company is required</div>
+           
+		</div>
+      </md-input-container>
+      
+      <md-input-container class="md-block" flex-gt-sm>
+            <label>Role</label>
+            <md-select ng-model="modelrole">
+              <md-option ng-repeat="state in states track by $index" value="{{state.abbrev}}" >
+                {{state.abbrev}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+      
+      
+      
+    </div>	
+  </md-content>
+  <div>
+        <md-button class="fright" ng-click="doUpdate()">Update</md-button>
+      	
+      </div>
+</form>
+ 
+
+</div>

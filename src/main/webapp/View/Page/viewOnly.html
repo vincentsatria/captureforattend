@@ -1,0 +1,28 @@
+<div>
+	<table class="minimalistBlack">
+	<thead>
+		<tr>
+		<td align="center">User ID</td>
+		<td align="center">Fullname</td>
+		<td align="center">Email</td>
+		<td align="center">Address</td>
+		<td align="center">Phone</td>
+		<td align="center">Company</td>
+		<td align="center">Role</td>
+		</tr>
+	</thead>
+		<tr ng-repeat="user in parsed track by $index">
+			
+			<td>{{ user.userID}}</td>
+			<td>{{ user.name}}</td>
+			<td>{{ user.email }}</td>
+			<td>{{ user.address}}</td>
+			<td>{{ user.phone}}</td>
+			<td>{{ user.company }}</td>
+			<td>{{ user.userRole}}</td>
+			
+			
+			
+		</tr>
+		</table>
+</div>

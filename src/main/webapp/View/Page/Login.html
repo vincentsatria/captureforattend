@@ -1,0 +1,39 @@
+<div layout="column" ng-cloak >
+<img src="./assets/picture/gambar.png" style="width:250px;height:200px;margin: auto auto;">
+<h1 align="center">Capture for Attendance</h1>
+<form name="login">
+  <md-content layout-gt-sm="row" layout-padding style="background-color:#c0c0c0;">
+    <div>
+      <md-input-container class="widthonly" >
+        <label >Username</label>
+        <md-icon md-svg-src="./assets/picture/username.svg" class="name"></md-icon>
+        <input ng-model="usermail" name="username" required  minlength="10" maxlength="30" ng-pattern="/^.+@.+\..+$/" lowercase>
+        <div ng-messages="login.username.$error">
+        	<div ng-message="required">Username is required.</div>
+        	<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+            Your Username is Invalid (E-Mail)
+          </div>
+          
+		</div>
+      </md-input-container>
+
+      <md-input-container class="widthonly">
+        <label>Password</label>
+         <md-icon md-svg-src="./assets/picture/password.svg" class="name"></md-icon>
+        <input ng-model="userpwd" type="password" name="password" required>
+         <div ng-messages="login.password.$error">
+        	<div ng-message="required">Password is required.</div>
+          </div>
+         
+      </md-input-container>
+    </div>
+  </md-content>
+  <div>
+  	<div align="center">
+        <md-button class="fright" ng-click="doLogin()">LogIn</md-button>
+      </div>
+      </div>
+</form>
+ 
+
+</div>

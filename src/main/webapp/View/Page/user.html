@@ -1,0 +1,82 @@
+ <div>
+	<table class="minimalistBlack">
+	
+		<tr>
+		<td ><b>User ID</b></td>
+		<td>{{ seeUser.userID}}</td>
+		</tr>
+		<tr>
+		<td ><b>Fullname</b></td>
+		<td>{{ seeUser.name}}</td>
+		</tr>
+		
+		<tr>
+		<td ><b>Email</b></td>
+		<td>{{ seeUser.email }}</td>
+		</tr>
+		
+		<tr>
+		<td ><b>Address</b></td>
+		<td>{{ seeUser.address}}</td>
+		</tr>
+		
+		<tr>
+		<td ><b>Phone</b></td>
+		<td>{{ seeUser.phone}}</td>
+		</tr>
+		
+		<tr>
+		<td ><b>Company</b></td>
+		<td>{{ seeUser.company }}</td>
+		</tr>
+		<tr>
+		<td ><b>Role</b></td>
+		<td>{{ seeUser.userRole}}</td>
+		</tr>
+		<tr>
+		<td colspan="2">
+			<table>
+			
+			</table>
+		</tr>
+	</table>
+	
+	<table class="minimalistBlack">
+	<thead>
+		<tr>
+		
+		<td align="center">PhotoIN</td>
+		<td align="center" ng-click="klik('IN')">Time In</td>
+		<td aligni="center"><img src="./assets/picture/myloc.png" style="width:24px; height:24px; "></img></td>
+		<td align="center">PhotoOut</td>
+		<td align="center">Time Out</td>
+		<td aligni="center"><img src="./assets/picture/myloc.png" style="width:24px; height:24px; "></img></td>
+		</tr>
+	</thead>
+	
+		<tr ng-repeat="user in filteredTodos  | orderBy:sorthasil track by $index" >
+			
+			
+			<td align="center" ng-style="{'background-color': isLate(user.userIN,user.userOUT)}" ><b ng-click="showPhoto($index,'IN')">see photo</b></td>
+			<td align="center" ng-style="{'background-color': isLate(user.userIN,user.userOUT)}">{{ user.userDateIN}}<br>{{user.userTimeIN}}</td>
+			<td aligni="center" ng-style="{'background-color': isLate(user.userIN,user.userOUT)}"><a ng-href="//www.google.com/maps/place/{{user.locationin}}" target="_blank"><img src="./assets/picture/location.png" style="width:24px; height:24px; "></img></a></td>
+			<td align="center" ng-style="{'background-color': isLate(user.userIN,user.userOUT)}"><b ng-click="showPhoto($index,'OUT')">see photo</b></td>
+			<td align="center" ng-style="{'background-color': isLate(user.userIN,user.userOUT)}">{{ user.userDateOUT}}<br>{{ user.userTimeOUT }}</td>
+			<td aligni="center" ng-style="{'background-color': isLate(user.userIN,user.userOUT)}"><a ng-href="//www.google.com/maps/place/{{user.locationout}}" target="_blank"><img src="./assets/picture/location.png" style="width:24px; height:24px; "></img></a></td>
+			</tr>
+		<tr>
+			<td colspan="6">
+			<img src="./assets/picture/back.png" style="width:24px; height:24px; " ng-click="back()" align="right"></img>
+			</td>
+		</tr>
+		
+		</table>
+		<div align="center">
+		<pagination 
+  		ng-model="currentPage"
+  		total-items="pageNumber"
+ 		 max-size="maxSize"  
+  		boundary-links="true">
+</pagination>
+		</div>
+</div>

@@ -1,0 +1,50 @@
+<div>
+	<div align="center">
+	<h1 align="center">User List</h1>
+    <md-input-container md-no-float class="md-icon-float md-block">
+   	
+   
+     
+    </md-input-container>
+    
+    </div>
+	<div >
+	<table class="minimalistBlack">
+	<thead>
+		<tr>
+		<td>No.</td>
+		<td align="center">Username</td>
+		<td align="center">Edit</td>
+		<td align="center">Delete</td>
+		</tr>
+	</thead>
+	
+		<tr ng-repeat="user in filteredTodos | filter:{name:search}" >
+			<td>{{ $index+1 }}</td>
+			<td><u ng-click="seeUser(user.userID)">{{ user.name }}</u></td>	
+			<td><md-button class="md-button" aria-label="edit" ng-click="doBeforeUpdate(user.userID)">
+         	 <u>Edit</u>
+      		  </md-button></td>
+       		 <td><md-button id="1" class="md-button" aria-label="edit" ng-click="doDelete(user.userID)">
+        	  <u>Delete</u>
+        	</md-button></td>
+       	
+    
+		</tr>
+		
+		</table>
+		<div align="center">
+		 <pagination 
+     	 	ng-model="currentPage"
+      		 total-items="pageNumber"
+     		 max-size="maxSize"  
+     	>
+    </pagination>
+    </div>
+	</div>
+	
+		
+
+
+
+</div>
